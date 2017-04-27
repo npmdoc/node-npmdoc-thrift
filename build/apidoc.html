@@ -4944,7 +4944,25 @@
   connection.client = client;
   return client;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Here is a Cassandra example:
+
+var thrift = require(&#x27;thrift&#x27;),
+    Cassandra = require(&#x27;./gen-nodejs/Cassandra&#x27;)
+    ttypes = require(&#x27;./gen-nodejs/cassandra_types&#x27;);
+
+var connection = thrift.createConnection(&#x22;localhost&#x22;, 9160),
+    client = thrift.<span class="apidocCodeKeywordSpan">createClient</span>(Cassandra, connection);
+
+connection.on(&#x27;error&#x27;, function(err) {
+  console.error(err);
+});
+
+client.get_slice(&#x22;Keyspace&#x22;, &#x22;key&#x22;, new ttypes.ColumnParent({column_family: &#x22;ExampleCF&#x22;}), new ttypes
+.SlicePredicate({slice_range: new ttypes.SliceRange({start: &#x27;&#x27;, finish: &#x27;&#x27;})}), ttypes.ConsistencyLevel.ONE,
+function(err, data) {
+  if (err) {
+...</pre></li>
     </ul>
 
 
@@ -4964,7 +4982,25 @@
 
   return connection;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Here is a Cassandra example:
+
+var thrift = require(&#x27;thrift&#x27;),
+    Cassandra = require(&#x27;./gen-nodejs/Cassandra&#x27;)
+    ttypes = require(&#x27;./gen-nodejs/cassandra_types&#x27;);
+
+var connection = thrift.<span class="apidocCodeKeywordSpan">createConnection</span>(&#x22;localhost&#x22;, 9160),
+    client = thrift.createClient(Cassandra, connection);
+
+connection.on(&#x27;error&#x27;, function(err) {
+  console.error(err);
+});
+
+client.get_slice(&#x22;Keyspace&#x22;, &#x22;key&#x22;, new ttypes.ColumnParent({column_family: &#x22;ExampleCF&#x22;}), new ttypes
+.SlicePredicate({slice_range: new ttypes.SliceRange({start: &#x27;&#x27;, finish: &#x27;&#x27;})}), ttypes.ConsistencyLevel.ONE,
+function(err, data) {
+...</pre></li>
     </ul>
 
 
@@ -5697,7 +5733,26 @@
     <li>description and source-code<pre class="apidocCodePre">end = function () {
   this.connection.end();
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    client.get_slice(&#x22;Keyspace&#x22;, &#x22;key&#x22;, new ttypes.ColumnParent({column_family: &#x22;ExampleCF&#x22;}), new
+ ttypes.SlicePredicate({slice_range: new ttypes.SliceRange({start: &#x27;&#x27;, finish: &#x27;&#x27;})}), ttypes.ConsistencyLevel
+.ONE, function(err, data) {
+      if (err) {
+        // handle err
+      } else {
+        // data == [ttypes.ColumnOrSuperColumn, ...]
+      }
+      connection.<span class="apidocCodeKeywordSpan">end</span>();
+    });
+
+&#x3c;a name=&#x22;int64&#x22;&#x3e;&#x3c;/a&#x3e;
+## Int64
+
+Since JavaScript represents all numbers as doubles, int64 values cannot be accurately represented naturally. To solve this, int64
+ values in responses will be wrapped with Thirft.Int64 objects. The Int64 implementation used is [broofa/node-int64](https://github
+.com/broofa/node-int64).
+...</pre></li>
     </ul>
 
 
@@ -6145,7 +6200,24 @@
     <li>description and source-code<pre class="apidocCodePre">toString = function (radix) {
   return this.valueOf().toString(radix || 10);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* [THRIFT-1392] - Enabling both namespaces and autoloading in generated PHP code won&#x27;t work.
+* [THRIFT-1406] - Build error after applying THRIFT-1395
+* [THRIFT-1405] - Delphi compiler does not generates container serializer properly.
+* [THRIFT-1411] - java generator does not provide type parameter for TBaseProcessor
+* [THRIFT-1473] - JSON context stack may be left in an incorrect state when an exception is thrown during read or write operations
+* [THRIFT-1331] - Ruby library deserializes an empty map to nil
+* [THRIFT-1330] - PHP Namespaces no longer generated
+* [THRIFT-1328] - TBaseHelper.<span class="apidocCodeKeywordSpan">toString</span>(...) appends ByteBuffer data outside of valid
+buffer range
+* [THRIFT-1322] - OCaml lib fail to compile: Thrift.ml line 305, int vs int32 mismatch
+* [THRIFT-1143] - Build doesn&#x27;t detect correct architecture type on 64bit osx
+* [THRIFT-1205] - port server unduly fragile with arbitrary input
+* [THRIFT-1279] - type set is handled incorrectly when writing object
+* [THRIFT-1298] - Standard scheme doesn&#x27;t read or write metadata along with field values
+* [THRIFT-1265] - C++ container deserialize
+* [THRIFT-1263] - publish ruby client to rubygems
+...</pre></li>
     </ul>
 
 
@@ -6305,7 +6377,25 @@
 
   return client;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Here is a Cassandra example:
+
+var thrift = require(&#x27;thrift&#x27;),
+    Cassandra = require(&#x27;./gen-nodejs/Cassandra&#x27;)
+    ttypes = require(&#x27;./gen-nodejs/cassandra_types&#x27;);
+
+var connection = thrift.createConnection(&#x22;localhost&#x22;, 9160),
+    client = thrift.<span class="apidocCodeKeywordSpan">createClient</span>(Cassandra, connection);
+
+connection.on(&#x27;error&#x27;, function(err) {
+  console.error(err);
+});
+
+client.get_slice(&#x22;Keyspace&#x22;, &#x22;key&#x22;, new ttypes.ColumnParent({column_family: &#x22;ExampleCF&#x22;}), new ttypes
+.SlicePredicate({slice_range: new ttypes.SliceRange({start: &#x27;&#x27;, finish: &#x27;&#x27;})}), ttypes.ConsistencyLevel.ONE,
+function(err, data) {
+  if (err) {
+...</pre></li>
     </ul>
 
 
@@ -9044,7 +9134,24 @@
     <li>description and source-code<pre class="apidocCodePre">toString = function () {
     return &#x22;[object Promise]&#x22;;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* [THRIFT-1392] - Enabling both namespaces and autoloading in generated PHP code won&#x27;t work.
+* [THRIFT-1406] - Build error after applying THRIFT-1395
+* [THRIFT-1405] - Delphi compiler does not generates container serializer properly.
+* [THRIFT-1411] - java generator does not provide type parameter for TBaseProcessor
+* [THRIFT-1473] - JSON context stack may be left in an incorrect state when an exception is thrown during read or write operations
+* [THRIFT-1331] - Ruby library deserializes an empty map to nil
+* [THRIFT-1330] - PHP Namespaces no longer generated
+* [THRIFT-1328] - TBaseHelper.<span class="apidocCodeKeywordSpan">toString</span>(...) appends ByteBuffer data outside of valid
+buffer range
+* [THRIFT-1322] - OCaml lib fail to compile: Thrift.ml line 305, int vs int32 mismatch
+* [THRIFT-1143] - Build doesn&#x27;t detect correct architecture type on 64bit osx
+* [THRIFT-1205] - port server unduly fragile with arbitrary input
+* [THRIFT-1279] - type set is handled incorrectly when writing object
+* [THRIFT-1298] - Standard scheme doesn&#x27;t read or write metadata along with field values
+* [THRIFT-1265] - C++ container deserialize
+* [THRIFT-1263] - publish ruby client to rubygems
+...</pre></li>
     </ul>
 
 
@@ -10089,7 +10196,27 @@
     <li>description and source-code<pre class="apidocCodePre">isOpen = function () {
   return true;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+THRIFT-873   Java                 Java tests fail due to Too many open files (Todd Lipcon)
+THRIFT-876   Java                 Add SASL support (Aaron T. Myers)
+THRIFT-879   Java                 Remove @Override from TUnion.clear (Dave Engberg)
+THRIFT-882   Java                 deep copy of binary fields does not copy ByteBuffer characteristics (arrayOffset, position) (Bryan
+ Duxbury)
+THRIFT-888   Java                 async client should also have nonblocking connect (Eric Jensen)
+THRIFT-890   Java                 Java tutorial doesn&#x27;t work (Todd Lipcon)
+THRIFT-894   Java                 Make default accessors for binary fields return byte[]; provide new accessors to get ByteBuffer
+ version (Bryan Duxbury)
+THRIFT-896   Java                 TNonblockingSocket.<span class="apidocCodeKeywordSpan">isOpen</span>() returns true even after
+ close() (Eric Jensen)
+THRIFT-907   Java                 libfb303 doesn&#x27;t compile in 0.4.0 (Todd Lipcon)
+THRIFT-912   Java                 Improvements and bug fixes to SASL implementation (Todd Lipcon)
+THRIFT-917   Java                 THsHaServer should not accept an ExecutorService without catching RejectedExecutionException (
+Ed Ceaser)
+THRIFT-931   Java                 Use log4j for Java tests (Todd Lipcon)
+THRIFT-880   JavaME               JavaME code generator and runtime library (Dave Engberg)
+THRIFT-846   JavaScript           JavaScript Test Framwork: extended Testcases (Roger Meier)
+THRIFT-885   JavaScript           Url encoded strings never get decoded? How do we fix this? (T Jake Luciani)
+...</pre></li>
     </ul>
 
 
@@ -11798,7 +11925,27 @@
     <li>description and source-code<pre class="apidocCodePre">isOpen = function () {
   return true;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+THRIFT-873   Java                 Java tests fail due to Too many open files (Todd Lipcon)
+THRIFT-876   Java                 Add SASL support (Aaron T. Myers)
+THRIFT-879   Java                 Remove @Override from TUnion.clear (Dave Engberg)
+THRIFT-882   Java                 deep copy of binary fields does not copy ByteBuffer characteristics (arrayOffset, position) (Bryan
+ Duxbury)
+THRIFT-888   Java                 async client should also have nonblocking connect (Eric Jensen)
+THRIFT-890   Java                 Java tutorial doesn&#x27;t work (Todd Lipcon)
+THRIFT-894   Java                 Make default accessors for binary fields return byte[]; provide new accessors to get ByteBuffer
+ version (Bryan Duxbury)
+THRIFT-896   Java                 TNonblockingSocket.<span class="apidocCodeKeywordSpan">isOpen</span>() returns true even after
+ close() (Eric Jensen)
+THRIFT-907   Java                 libfb303 doesn&#x27;t compile in 0.4.0 (Todd Lipcon)
+THRIFT-912   Java                 Improvements and bug fixes to SASL implementation (Todd Lipcon)
+THRIFT-917   Java                 THsHaServer should not accept an ExecutorService without catching RejectedExecutionException (
+Ed Ceaser)
+THRIFT-931   Java                 Use log4j for Java tests (Todd Lipcon)
+THRIFT-880   JavaME               JavaME code generator and runtime library (Dave Engberg)
+THRIFT-846   JavaScript           JavaScript Test Framwork: extended Testcases (Roger Meier)
+THRIFT-885   JavaScript           Url encoded strings never get decoded? How do we fix this? (T Jake Luciani)
+...</pre></li>
     </ul>
 
 
@@ -13679,7 +13826,27 @@
     <li>description and source-code<pre class="apidocCodePre">isOpen = function () {
   return this.socket &#x26;&#x26; this.socket.readyState == this.socket.OPEN;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+THRIFT-873   Java                 Java tests fail due to Too many open files (Todd Lipcon)
+THRIFT-876   Java                 Add SASL support (Aaron T. Myers)
+THRIFT-879   Java                 Remove @Override from TUnion.clear (Dave Engberg)
+THRIFT-882   Java                 deep copy of binary fields does not copy ByteBuffer characteristics (arrayOffset, position) (Bryan
+ Duxbury)
+THRIFT-888   Java                 async client should also have nonblocking connect (Eric Jensen)
+THRIFT-890   Java                 Java tutorial doesn&#x27;t work (Todd Lipcon)
+THRIFT-894   Java                 Make default accessors for binary fields return byte[]; provide new accessors to get ByteBuffer
+ version (Bryan Duxbury)
+THRIFT-896   Java                 TNonblockingSocket.<span class="apidocCodeKeywordSpan">isOpen</span>() returns true even after
+ close() (Eric Jensen)
+THRIFT-907   Java                 libfb303 doesn&#x27;t compile in 0.4.0 (Todd Lipcon)
+THRIFT-912   Java                 Improvements and bug fixes to SASL implementation (Todd Lipcon)
+THRIFT-917   Java                 THsHaServer should not accept an ExecutorService without catching RejectedExecutionException (
+Ed Ceaser)
+THRIFT-931   Java                 Use log4j for Java tests (Todd Lipcon)
+THRIFT-880   JavaME               JavaME code generator and runtime library (Dave Engberg)
+THRIFT-846   JavaScript           JavaScript Test Framwork: extended Testcases (Roger Meier)
+THRIFT-885   JavaScript           Url encoded strings never get decoded? How do we fix this? (T Jake Luciani)
+...</pre></li>
     </ul>
 
 
@@ -13982,7 +14149,27 @@
     <li>description and source-code<pre class="apidocCodePre">isOpen = function () {
   return true;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+THRIFT-873   Java                 Java tests fail due to Too many open files (Todd Lipcon)
+THRIFT-876   Java                 Add SASL support (Aaron T. Myers)
+THRIFT-879   Java                 Remove @Override from TUnion.clear (Dave Engberg)
+THRIFT-882   Java                 deep copy of binary fields does not copy ByteBuffer characteristics (arrayOffset, position) (Bryan
+ Duxbury)
+THRIFT-888   Java                 async client should also have nonblocking connect (Eric Jensen)
+THRIFT-890   Java                 Java tutorial doesn&#x27;t work (Todd Lipcon)
+THRIFT-894   Java                 Make default accessors for binary fields return byte[]; provide new accessors to get ByteBuffer
+ version (Bryan Duxbury)
+THRIFT-896   Java                 TNonblockingSocket.<span class="apidocCodeKeywordSpan">isOpen</span>() returns true even after
+ close() (Eric Jensen)
+THRIFT-907   Java                 libfb303 doesn&#x27;t compile in 0.4.0 (Todd Lipcon)
+THRIFT-912   Java                 Improvements and bug fixes to SASL implementation (Todd Lipcon)
+THRIFT-917   Java                 THsHaServer should not accept an ExecutorService without catching RejectedExecutionException (
+Ed Ceaser)
+THRIFT-931   Java                 Use log4j for Java tests (Todd Lipcon)
+THRIFT-880   JavaME               JavaME code generator and runtime library (Dave Engberg)
+THRIFT-846   JavaScript           JavaScript Test Framwork: extended Testcases (Roger Meier)
+THRIFT-885   JavaScript           Url encoded strings never get decoded? How do we fix this? (T Jake Luciani)
+...</pre></li>
     </ul>
 
 
