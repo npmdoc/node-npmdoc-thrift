@@ -1,6 +1,6 @@
 # npmdoc-thrift
 
-#### api documentation for  [thrift (v0.10.0)](http://thrift.apache.org/)  [![npm package](https://img.shields.io/npm/v/npmdoc-thrift.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-thrift) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-thrift.svg)](https://travis-ci.org/npmdoc/node-npmdoc-thrift)
+#### basic api documentation for  [thrift (v0.10.0)](http://thrift.apache.org/)  [![npm package](https://img.shields.io/npm/v/npmdoc-thrift.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-thrift) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-thrift.svg)](https://travis-ci.org/npmdoc/node-npmdoc-thrift)
 
 #### node.js bindings for the Apache Thrift RPC system
 
@@ -84,7 +84,8 @@
         "cover": "lib/nodejs/test/testAll.sh COVER",
         "test": "lib/nodejs/test/testAll.sh"
     },
-    "version": "0.10.0"
+    "version": "0.10.0",
+    "bin": {}
 }
 ```
 
